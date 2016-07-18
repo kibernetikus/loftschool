@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <div id="container">
+        <div class="c1"></div>
+        <p></p>
+        <p class="c2"></p>
+    </div>
+    <script>
+    var container = document.querySelector('#container');
+
+    var tags = {
+
+    };
+
+    var classes = {
+
+    };
+    var textNodes = 0;
+
+    function scanDom(parent, i) {
+
+
+
+        if (parent.childNodes[i].tagName) {
+
+            var current = parent.childNodes[i].tagName;
+            current = current.toLowerCase();
+            if (current in tags) {
+                tags[current]++;
+            } else {
+                tags[current] = 1;
+            }
+        }
+
+
+        if (parent.childNodes[i].className) {
+
+            var current = parent.childNodes[i].className;
+            current = current.toLowerCase();
+
+
+            if (current in classes) {
+                classes[current]++;
+
+
+            } else {
+                classes[current] = 1;
+            }
+        }
+
+
+        i++;
+
+        if (i < parent.childNodes.length) {
+            scanDom(container, i);
+        } else {
+            for (var tag in tags) {
+                console.log(tag);
+                console.log(tags[tag]);
+
+            }
+            for (var clas in classes) {
+                console.log(clas);
+                console.log(classes[clas]);
+
+            }
+        }
+    </script>
+</body>
+
+</html>
