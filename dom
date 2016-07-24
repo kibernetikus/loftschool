@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <style>
+    .square{
+  border-radius:6px;
+  position:absolute;
+  box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+  -webkit-box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
+}
+#btn{
+  position:absolute;
+  z-index:1030;
+  top:20px;
+}
+.selected{
+  border:1px #34AADC solid;
+  opacity:0.8;
+}</style>
+</head>
+
+<body>
+   <div class="wrapper">
+
+</div>
+
+<input type="button" id="btn" value="Клац">
+    
+    
+<script>
+
+var zone = document.querySelector('.wrapper');
+var button = document.querySelector('#btn');
+zIndex = 0;
+
+var colors = ['#FF2A68', '#FF5E3A', '#2B2B2B', '#4CD964', '#8E8E93', '#5856D6', '#007AFF', '#FFCC00', '#52EDC7']
+
+function addLayer(){
+var newLayer = document.createElement('div');
+zone.appendChild(newLayer);
+var random = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
+var color = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+var margin = Math.floor(Math.random() * (200 - 50 + 1)) + 50;
+
+newLayer.style.width=random + 'px';
+newLayer.style.height=random  /2 + 'px';
+newLayer.style.background=colors[color];
+newLayer.style.left = margin + 'px';
+newLayer.style.top = margin / 2  + 'px';
+newLayer.style.zIndex = zIndex;
+zIndex++;
+
+newLayer.className='square';
+var squares = document.querySelectorAll('.square');
+console.log(squares);
+for(var m = 0; m < squares.length; m++){
+
+squares[m].onmousedown = function(e){
+var elem = this;
+move(elem,e);
+function move(d,e){
+ elem.style.left = e.pageX - d.offsetWidth / 2 + 'px';
+  elem.style.top = e.pageY - d.offsetHeight / 2 + 'px';  
+}
+
+document.onmousemove = function(e) {
+    move(elem, e);
+  }
+  
+this.onmouseup = function() {
+    document.onmousemove = null;
+    squares[m].onmouseup = null;
+  }
+
+}
+
+
+}
+};
+
+
+
+button.addEventListener("click",addLayer);
+</script>
+</body>
+</html>
+
