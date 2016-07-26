@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+    <div class="container">
+<input type="button" id="getCities" value="Загрузить json">
+</div>
+    <script>
+ var parent = document.querySelector('.container');
+function getCity(url){
+    return new Promise(function(resolve,reject){
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = 'json';
+    xhr.open('GET', url, true);
+    xhr.addEventListener('load', ()=>{
+        resolve(xhr.response);
+    })
+
+  
+    xhr.send();
+})
+};
+
+
+
+getCities.addEventListener('click', () => {
+getCity('https://raw.githubusercontent.com/smelukov/citiesTest/master/cities.json').then(response => {
+response = response.sort();
+var elems = [];
+for({name} of response){
+    elems.push(name);
+    
+  }
+  
+  elems.sort();
+    console.log(elems);
+
+  for(var el of elems){
+
+    let paragraph = document.createElement('p');
+    paragraph.innerText = el;
+    parent.appendChild(paragraph);
+  }
+});
+});
+
+
+
+
+    </script>
+</body>
+
+</html>
