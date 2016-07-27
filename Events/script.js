@@ -1,39 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-    <style>
-    .square{
-  border-radius:6px;
-  position:absolute;
-  box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
-  -moz-box-shadow: 0 22px 43px rgba(0, 0, 0, 0.15);
-}
-#btn{
-  position:absolute;
-  z-index:1030;
-  top:20px;
-}
-.selected{
-  border:1px #34AADC solid;
-  opacity:0.8;
-}</style>
-</head>
-
-<body>
-   <div class="wrapper">
-
-</div>
-
-<input type="button" id="btn" value="Клац">
-    
-    
-<script>
 
 var zone = document.querySelector('.wrapper');
 var button = document.querySelector('#btn');
@@ -85,8 +50,4 @@ this.onmouseup = function() {
 };
 
 
-
 button.addEventListener("click",addLayer);
-</script>
-</body>
-</html>
