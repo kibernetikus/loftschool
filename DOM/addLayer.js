@@ -1,7 +1,6 @@
 
 
 var zone = document.querySelector('.wrapper');
-var button = document.querySelector('#btn');
 zIndex = 0;
 
 var colors = ['#FF2A68', '#FF5E3A', '#2B2B2B', '#4CD964', '#8E8E93', '#5856D6', '#007AFF', '#FFCC00', '#52EDC7']
@@ -49,5 +48,5 @@ this.onmouseup = function() {
 }
 };
 
+module.exports = addLayer;
 
-button.addEventListener("click",addLayer);
