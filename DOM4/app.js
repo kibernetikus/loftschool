@@ -1,31 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title></title>
-</head>
-
-<body>
-    <div id="container">
-        <div class="c1"></div>
-        <p></p>
-        <p class="c2"></p>
-    </div>
-    <script>
-    var container = document.querySelector('#container');
-
-    var tags = {
-
-    };
-
-    var classes = {
-
-    };
-    var textNodes = 0;
-
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
     function scanDom(parent, i) {
 
 
@@ -74,7 +47,22 @@
 
             }
         }
-    </script>
-</body>
+    }
 
-</html>
+module.exports = scanDom;
+
+
+},{}],2:[function(require,module,exports){
+var scanDom = require ('./ScanDom.js');
+
+document.addEventListener("DOMContentLoaded", ready);
+
+var tags = {};
+var classes = {};
+var textNodes = 0;
+function ready(){
+var container = document.querySelector('#container');
+scanDom(container,0);
+}
+
+},{"./ScanDom.js":1}]},{},[2]);
