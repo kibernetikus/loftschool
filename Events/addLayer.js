@@ -1,11 +1,10 @@
 
 
-var zone = document.querySelector('.wrapper');
-zIndex = 0;
 
-var colors = ['#FF2A68', '#FF5E3A', '#2B2B2B', '#4CD964', '#8E8E93', '#5856D6', '#007AFF', '#FFCC00', '#52EDC7']
 
 function addLayer(){
+var zIndex = 0;
+var colors = ['#FF2A68', '#FF5E3A', '#2B2B2B', '#4CD964', '#8E8E93', '#5856D6', '#007AFF', '#FFCC00', '#52EDC7'];
 var newLayer = document.createElement('div');
 zone.appendChild(newLayer);
 var random = Math.floor(Math.random() * (500 - 100 + 1)) + 100;
